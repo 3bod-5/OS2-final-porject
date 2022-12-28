@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: abodel
+spec:
+  selector:
+    matchLabels:
+      app: abodel
+  replicas: 3
+  template:
+    metadata:
+      name: abodel
+      labels:
+        app: abodel
+    spec:    
+      containers:
+        - name: project-image
+          image: 3bod/nginx-project 
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+             
